@@ -1,0 +1,5 @@
+WingtipToys/bin
+WingtipToys/obj
+
+*.suo
+*.user
