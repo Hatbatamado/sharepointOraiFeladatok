@@ -81,7 +81,7 @@
                                 <td>
 
 
-                                    <a href="/ProductDetails.aspx?id=<%#: Item.ProductID %>">
+                                    <%#: GetRouteUrl("ProductByNameRoute", new {productName = Item.ProductName}) %>
 
 
                                         <image src='/Catalog/Images/Thumbs/<%#:Item.ImagePath%>'
@@ -103,7 +103,7 @@
                                 <td>
 
 
-                                    <a href="/ProductDetails.aspx?id=<%#: Item.ProductID %>">
+                                    <%#: GetRouteUrl("ProductByNameRoute", new {productName = Item.ProductName}) %>
 
 
                                         <%#:Item.ProductName%> 
