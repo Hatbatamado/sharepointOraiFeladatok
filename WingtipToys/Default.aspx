@@ -41,7 +41,7 @@ Wingtip Toys can help you find the perfect gift.
 <p>We're all about transportation toys. You can order class any of our toys today. Each toy listing has detailed information to help you choose the right toy.</p> 
 　     <style>
         .ui-autocomplete-loading {
-            background: white url("/Images/ui-anim_basic_16x16.gif") right center no-repeat;
+            background: white url("Catalog/Images/loading.gif") right center no-repeat;
         }
     </style>
     <script type="text/javascript">
