@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace WingtipToys
 {
-    public partial class Contact : Page
+    public partial class JSTest : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            throw new InvalidOperationException("Hiba történt a Contact Page load-jában. Fordulj vkihez!");
+
         }
     }
 }
