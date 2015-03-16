@@ -79,7 +79,7 @@ namespace WingtipToys.Logic
             ShoppingCartId = GetCartId();
 
             return _db.ShoppingCartItems.Where(
-                c => c.CartId == ShoppingCartId).ToList();
+                c => c.CartId == ShoppingCartId && String.IsNullOrEmpty(c.Status)).ToList();
         }
 
         public decimal GetTotal()
@@ -112,7 +112,12 @@ namespace WingtipToys.Logic
                 try
                 {
                     int CartItemCount = CartItemUpdates.Count();
-                    List<CartItem> myCart = GetCartItems();
+                    List<CartItem> myCart = null;
+                    if (!String.IsNullOrEmpty(cartId))
+                        myCart = GetCartItems();
+                    else
+                        myCart = CartItemsBLL.GetNotApprovedCarItems();
+
                     foreach (var cartItem in myCart)
                     {
                         // Iterate through all rows within shopping cart list
@@ -122,11 +127,19 @@ namespace WingtipToys.Logic
                             {
                                 if (CartItemUpdates[i].PurchaseQuantity < 1 || CartItemUpdates[i].RemoveItem == true)
                                 {
-                                    RemoveItem(cartId, cartItem.ProductId);
+                                    if (!String.IsNullOrEmpty(cartId))
+                                        RemoveItem(cartId, cartItem.ProductId);
+                                    else
+                                        RemoveItem(cartItem.CartId, cartItem.ProductId);
                                 }
                                 else
                                 {
-                                    UpdateItem(cartId, cartItem.ProductId, CartItemUpdates[i].PurchaseQuantity);
+                                    if (!String.IsNullOrEmpty(cartId))
+                                        UpdateItem(cartId, cartItem.ProductId, CartItemUpdates[i].PurchaseQuantity, CartItemUpdates[i].Status);
+                                    else
+                                    {
+                                        UpdateItem(cartItem.CartId, cartItem.ProductId, CartItemUpdates[i].PurchaseQuantity, CartItemUpdates[i].Status);
+                                    }
                                 }
                             }
                         }
@@ -160,7 +173,7 @@ namespace WingtipToys.Logic
             }
         }
 
-        public void UpdateItem(string updateCartID, int updateProductID, int quantity)
+        public void UpdateItem(string updateCartID, int updateProductID, int quantity, string status)
         {
             using (var _db = new WingtipToys.Models.ProductContext())
             {
@@ -170,6 +183,7 @@ namespace WingtipToys.Logic
                     if (myItem != null)
                     {
                         myItem.Quantity = quantity;
+                        myItem.Status = status;
                         _db.SaveChanges();
                     }
                 }
@@ -210,6 +224,7 @@ namespace WingtipToys.Logic
             public int ProductId;
             public int PurchaseQuantity;
             public bool RemoveItem;
+            public string Status { get; set; }
         }
 
         public void MigrateCart(string cartId, string userName)

@@ -81,7 +81,10 @@ namespace WingtipToys
         protected void Page_Load(object sender, EventArgs e)
         {
             if (HttpContext.Current.User.IsInRole(Settings.AdministratorRoleName))
+            {
                 AdminLink.Visible = true;
+                AdminLink2.Visible = true;
+            }
         }
 
         protected void Unnamed_LoggingOut(object sender, LoginCancelEventArgs e)

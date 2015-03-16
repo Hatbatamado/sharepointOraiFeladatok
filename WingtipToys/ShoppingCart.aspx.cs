@@ -49,8 +49,10 @@ namespace WingtipToys
                 ShoppingCartActions.ShoppingCartUpdates[] cartUpdates = new ShoppingCartActions.ShoppingCartUpdates[CartList.Rows.Count];
                 for (int i = 0; i < CartList.Rows.Count; i++)
                 {
+                    cartUpdates[i].Status = CartItemStatus.Registered.ToString();
+
                     IOrderedDictionary rowValues = new OrderedDictionary();
-                    rowValues = GetValues(CartList.Rows[i]);
+                    rowValues = Utility.GetValues(CartList.Rows[i]);
                     cartUpdates[i].ProductId = Convert.ToInt32(rowValues["ProductID"]);
 
                     CheckBox cbRemove = new CheckBox();
@@ -66,20 +68,6 @@ namespace WingtipToys
                 lblTotal.Text = String.Format("{0:c}", usersShoppingCart.GetTotal());
                 return usersShoppingCart.GetCartItems();
             }
-        }
-
-        public static IOrderedDictionary GetValues(GridViewRow row)
-        {
-            IOrderedDictionary values = new OrderedDictionary();
-            foreach (DataControlFieldCell cell in row.Cells)
-            {
-                if (cell.Visible)
-                {
-                    // Extract values from the cell.
-                    cell.ContainingField.ExtractValuesFromCell(values, cell, row.RowState, true);
-                }
-            }
-            return values;
         }
 
         protected void UpdateBtn_Click(object sender, EventArgs e)
