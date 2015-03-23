@@ -13,7 +13,14 @@ namespace WingtipToys.UserControls
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
+            {
+                commentDiv.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
+                loginDiv.Visible = !commentDiv.Visible;
                 LoadComments();
+
+                //script ellen védekezés:
+                //string s = Server.HtmlEncode("<script>alert('asda');</script>");
+            }
         }
 
         private void LoadComments()
