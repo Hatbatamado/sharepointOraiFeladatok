@@ -182,6 +182,8 @@ namespace WingtipToys.Logic
                     var myItem = (from c in _db.ShoppingCartItems where c.CartId == updateCartID && c.Product.ProductID == updateProductID select c).FirstOrDefault();
                     if (myItem != null)
                     {
+                        if (String.IsNullOrEmpty(myItem.UserLoginName))
+                            myItem.UserLoginName = HttpContext.Current.User.Identity.Name;
                         myItem.Quantity = quantity;
                         myItem.Status = status;
                         _db.SaveChanges();

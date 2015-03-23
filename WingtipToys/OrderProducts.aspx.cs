@@ -17,7 +17,7 @@ namespace WingtipToys
 
         public List<WingtipToys.Models.CartItem> CartList_GetData()
         {
-            return CartItemsBLL.GetOrderedCarItems();
+            return CartItemsBLL.GetOrderedCarItems(HttpContext.Current.User.Identity.Name);
         }
     }
 }

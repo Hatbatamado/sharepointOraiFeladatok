@@ -10,7 +10,7 @@ namespace WingtipToys.Logic
 {
     public class CartItemsBLL
     {
-        internal static List<CartItem> GetOrderedCarItems()
+        internal static List<CartItem> GetOrderedCarItems(string UserLoginName)
         {
             using (ProductContext db = new ProductContext())
             {
@@ -20,7 +20,8 @@ namespace WingtipToys.Logic
 
                 string a = CartItemStatus.Approved.ToString();
                 List<CartItem> carItems = (db.ShoppingCartItems.
-                    Where(ci => !String.IsNullOrEmpty(ci.Status))).
+                    Where(ci => !String.IsNullOrEmpty(ci.Status)
+                        && ci.UserLoginName == UserLoginName)).
                     Include(p => p.Product).ToList();
 
                 foreach (CartItem item in carItems)
