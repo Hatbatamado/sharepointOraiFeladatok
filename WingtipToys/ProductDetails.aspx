@@ -1,5 +1,33 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="WingtipToys.ProductDetails" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ProductDetails.aspx.cs" Inherits="WingtipToys.ProductDetails" ValidateRequest="false" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <script src="//tinymce.cachefly.net/4.1/tinymce.min.js"></script>
+    <script type="text/javascript">
+        tinymce.init({
+            selector: "textarea"
+        });
+
+        Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
+        Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(BeginRequestHandler);
+
+        function BeginRequestHandler() {
+
+        }
+
+        //AJAX nem mindig hatja végre a javascripteket, ezért itt meg kell hívni őket
+        function EndRequestHandler() {
+
+            try {
+                tinymce.init({
+                    selector: "textarea"
+                });
+            }
+            catch (err) {
+
+            }
+        }
+    </script>
+
     <asp:FormView ID="productDetail" runat="server" ItemType="WingtipToys.Models.Product" SelectMethod="GetProduct" RenderOuterTable="false">
         <ItemTemplate>
             <div>
@@ -27,5 +55,6 @@
     </asp:FormView>
 
     <asp:PlaceHolder runat="server" ID="CommentsPlaceHolder"></asp:PlaceHolder>
+
 
 </asp:Content>

@@ -31,15 +31,6 @@ namespace WingtipToys.UserControls {
         protected global::System.Web.UI.WebControls.TextBox TextBoxComment;
         
         /// <summary>
-        /// requiredComment control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredComment;
-        
-        /// <summary>
         /// ButtonSend control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,24 @@ namespace WingtipToys.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button ButtonSend;
+        
+        /// <summary>
+        /// MainUpdatePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.UpdatePanel MainUpdatePanel;
+        
+        /// <summary>
+        /// HiddenFieldComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField HiddenFieldComment;
         
         /// <summary>
         /// loginDiv control.

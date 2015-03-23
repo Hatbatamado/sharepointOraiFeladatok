@@ -31,8 +31,10 @@ namespace WingtipToys.UserControls
 
         protected void ButtonSend_Click(object sender, EventArgs e)
         {
-            CommentBLL.AddComment(TextBoxComment.Text, ProductId);
+            //CommentBLL.AddComment(Server.HtmlEncode(TextBoxComment.Text), ProductId);
+            CommentBLL.AddComment(HiddenFieldComment.Value, ProductId);
             LoadComments();
+            TextBoxComment.Text = string.Empty;
         }
 
         public int ProductId { get; set; }
@@ -46,6 +48,12 @@ namespace WingtipToys.UserControls
                 CommentBLL.DeleteComment(commentId);
                 LoadComments();
             }
+        }
+
+        protected void CommentsRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        {
+            LinkButton lb = e.Item.FindControl("TorlesButton") as LinkButton;
+            lb.Visible = HttpContext.Current.User.IsInRole(Settings.AdministratorRoleName.ToString());
         }
     }
 }

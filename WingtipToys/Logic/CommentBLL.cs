@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Validation;
 using System.Linq;
 using System.Web;
 using WingtipToys.Models;
@@ -10,7 +11,7 @@ namespace WingtipToys.Logic
     {
         public static void AddComment(string comment, int productId)
         {
-            using(ProductContext db = new ProductContext())
+            using (ProductContext db = new ProductContext())
             {
                 Comment c = new Comment();
                 db.Comments.Add(c);
@@ -19,6 +20,7 @@ namespace WingtipToys.Logic
                 c.UserLoginName = HttpContext.Current.User.Identity.Name;
 
                 db.SaveChanges();
+
             }
         }
 
@@ -47,5 +49,7 @@ namespace WingtipToys.Logic
                 db.SaveChanges();
             }
         }
+
+        public static IEnumerable<string> errorMessages { get; set; }
     }
 }

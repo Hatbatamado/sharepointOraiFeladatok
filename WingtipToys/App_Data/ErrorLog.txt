@@ -123,3 +123,156 @@ Exception Type: System.Web.HttpException
 Exception: An HTTP error occurred. Page Not found. Please try again.
 Source: customErrors section - Web.config
 Stack Trace: 
+********** 2015.03.23. 17:06:10 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:18:24 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: A sorozat nem tartalmaz elemeket.
+Inner Source: System.Core
+Inner Stack Trace: 
+   a következő helyen: System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Linq.Queryable.Single[TSource](IQueryable`1 source)
+   a következő helyen: WingtipToys.ProductDetails.Page_Init(Object sender, EventArgs e) hely: c:\Users\Training\Downloads\sharepointOraiFeladatok\WingtipToys\ProductDetails.aspx.cs, sor: 25
+   a következő helyen: System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   a következő helyen: System.Web.UI.Control.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Page.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Control.InitRecursive(Control namingContainer)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: A program „System.Web.HttpUnhandledException” típusú kivételt váltott ki.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   a következő helyen: System.Web.UI.Page.HandleError(Exception e)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest()
+   a következő helyen: System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(HttpContext context)
+   a következő helyen: ASP.productdetails_aspx.ProcessRequest(HttpContext context) hely: c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\e20e6a88\57a9c8ea\App_Web_khzko0bv.4.cs, sor: 0
+   a következő helyen: System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   a következő helyen: System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2015.03.23. 17:18:25 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:25:41 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:29:11 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:33:02 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: A sorozat nem tartalmaz elemeket.
+Inner Source: System.Core
+Inner Stack Trace: 
+   a következő helyen: System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Linq.Queryable.Single[TSource](IQueryable`1 source)
+   a következő helyen: WingtipToys.ProductDetails.Page_Init(Object sender, EventArgs e) hely: c:\Users\Training\Downloads\sharepointOraiFeladatok\WingtipToys\ProductDetails.aspx.cs, sor: 25
+   a következő helyen: System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   a következő helyen: System.Web.UI.Control.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Page.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Control.InitRecursive(Control namingContainer)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: A program „System.Web.HttpUnhandledException” típusú kivételt váltott ki.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   a következő helyen: System.Web.UI.Page.HandleError(Exception e)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest()
+   a következő helyen: System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(HttpContext context)
+   a következő helyen: ASP.productdetails_aspx.ProcessRequest(HttpContext context) hely: c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\e20e6a88\57a9c8ea\App_Web_jne04211.0.cs, sor: 0
+   a következő helyen: System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   a következő helyen: System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2015.03.23. 17:33:03 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:35:49 **********
+Inner Exception Type: System.InvalidOperationException
+Inner Exception: A sorozat nem tartalmaz elemeket.
+Inner Source: System.Core
+Inner Stack Trace: 
+   a következő helyen: System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.<GetElementFunction>b__3[TResult](IEnumerable`1 sequence)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.ExecuteSingle[TResult](IEnumerable`1 query, Expression queryRoot)
+   a következő helyen: System.Data.Entity.Core.Objects.ELinq.ObjectQueryProvider.System.Linq.IQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Data.Entity.Internal.Linq.DbQueryProvider.Execute[TResult](Expression expression)
+   a következő helyen: System.Linq.Queryable.Single[TSource](IQueryable`1 source)
+   a következő helyen: WingtipToys.ProductDetails.Page_Init(Object sender, EventArgs e) hely: c:\Users\Training\Downloads\sharepointOraiFeladatok\WingtipToys\ProductDetails.aspx.cs, sor: 25
+   a következő helyen: System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   a következő helyen: System.Web.UI.Control.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Page.OnInit(EventArgs e)
+   a következő helyen: System.Web.UI.Control.InitRecursive(Control namingContainer)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: A program „System.Web.HttpUnhandledException” típusú kivételt váltott ki.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   a következő helyen: System.Web.UI.Page.HandleError(Exception e)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest()
+   a következő helyen: System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(HttpContext context)
+   a következő helyen: ASP.productdetails_aspx.ProcessRequest(HttpContext context) hely: c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\e20e6a88\57a9c8ea\App_Web_jmppaafd.10.cs, sor: 0
+   a következő helyen: System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   a következő helyen: System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2015.03.23. 17:35:50 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:38:34 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:39:09 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:42:40 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 17:45:23 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 18:01:52 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.23. 18:02:56 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
