@@ -23,7 +23,7 @@ namespace WingtipToys
                 String.Compare(p.ProductName, productName) == 0);
 
             commentUC.ProductId = product.Single().ProductID;
-            CommentsPlaceHolder2.Controls.Add(commentUC);
+            CommentsPlaceHolder.Controls.Add(commentUC);
         }
 
         protected void Page_Load(object sender, EventArgs e)

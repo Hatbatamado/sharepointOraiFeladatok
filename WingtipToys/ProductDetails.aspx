@@ -35,6 +35,5 @@
             </table>
         </ItemTemplate>
     </asp:FormView>
-    <asp:PlaceHolder runat="server" ID="Fasz"></asp:PlaceHolder>
-    <asp:PlaceHolder runat="server" ID="CommentsPlaceHolder2"></asp:PlaceHolder>
+    <asp:PlaceHolder runat="server" ID="CommentsPlaceHolder"></asp:PlaceHolder>
 </asp:Content>
