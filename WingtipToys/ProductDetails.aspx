@@ -25,4 +25,7 @@
             </table>
         </ItemTemplate>
     </asp:FormView>
+
+    <asp:PlaceHolder runat="server" ID="CommentsPlaceHolder"></asp:PlaceHolder>
+
 </asp:Content>

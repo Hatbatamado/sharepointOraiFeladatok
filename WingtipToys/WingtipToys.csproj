@@ -246,6 +246,7 @@
     <Content Include="Service.asmx" />
     <Content Include="ShoppingCart.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="UserControls\CommentsUC.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -360,6 +361,7 @@
     <Compile Include="Logic\AddProducts.cs" />
     <Compile Include="Logic\CartItemsBLL.cs" />
     <Compile Include="Logic\CartItemStatus.cs" />
+    <Compile Include="Logic\CommentBLL.cs" />
     <Compile Include="Logic\ExceptionUtility.cs" />
     <Compile Include="Logic\ProductBLL.cs" />
     <Compile Include="Logic\RoleActions.cs" />
@@ -367,6 +369,7 @@
     <Compile Include="Logic\Utility.cs" />
     <Compile Include="Models\CartItem.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Comment.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ProductContext.cs" />
@@ -420,6 +423,13 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UserControls\CommentsUC.ascx.cs">
+      <DependentUpon>CommentsUC.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\CommentsUC.ascx.designer.cs">
+      <DependentUpon>CommentsUC.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

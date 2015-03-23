@@ -11,7 +11,7 @@ namespace WingtipToys.Logic
     public class CartItemsBLL
     {
         /// <summary>
-        /// 
+        /// státuszra szűr, üres esetén mindent visszaad
         /// </summary>
         /// <param name="UserLoginName"></param>
         /// <param name="Status">státuszra szűr, üres esetén mindent visszaad</param>
