@@ -33,5 +33,19 @@ namespace WingtipToys.Logic
                 //return (db.Comments.Where(c => c.ProductID == ProductId).ToList());
             }
         }
+
+        internal static void DeleteComment(int commentId)
+        {
+            using (var db = new ProductContext())
+            {
+                Comment c = (from co in db.Comments
+                             where co.CommentID == commentId
+                             select co).Single();
+
+                db.Comments.Remove(c);
+                
+                db.SaveChanges();
+            }
+        }
     }
 }

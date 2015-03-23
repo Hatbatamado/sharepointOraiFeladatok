@@ -36,5 +36,16 @@ namespace WingtipToys.UserControls
         }
 
         public int ProductId { get; set; }
+
+        protected void CommentsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            //onrowcommand gridviewban
+            if (e.CommandName == "Torles")
+            {
+                int commentId = Convert.ToInt32(e.CommandArgument);
+                CommentBLL.DeleteComment(commentId);
+                LoadComments();
+            }
+        }
     }
 }
