@@ -1,6 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="OrderProducts.aspx.cs" Inherits="WingtipToys.OrderProducts" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <div id="ApprovalListTitle" runat="server" class="ContentHead"><h1>Ordered Products</h1></div>
+    <asp:DropDownList runat="server" ID="ViewsDDL" AutoPostBack="true" OnSelectedIndexChanged="ViewsDDL_SelectedIndexChanged">
+        <asp:ListItem Text="Active" Value="Approved"></asp:ListItem>
+        <asp:ListItem Text="Shipped" Value="Shipped"></asp:ListItem>
+        <asp:ListItem Text="All" Value="All"></asp:ListItem>
+    </asp:DropDownList>
     <asp:GridView ID="CartList" runat="server" AutoGenerateColumns="False" ShowFooter="True" GridLines="Vertical" CellPadding="4"
         ItemType="WingtipToys.Models.CartItem" SelectMethod="CartList_GetData"
         CssClass="table table-striped table-bordered" >   

@@ -10,7 +10,13 @@ namespace WingtipToys.Logic
 {
     public class CartItemsBLL
     {
-        internal static List<CartItem> GetOrderedCarItems(string UserLoginName)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="UserLoginName"></param>
+        /// <param name="Status">státuszra szűr, üres esetén mindent visszaad</param>
+        /// <returns></returns>
+        internal static List<CartItem> GetOrderedCarItems(string UserLoginName, string Status)
         {
             using (ProductContext db = new ProductContext())
             {
@@ -21,7 +27,8 @@ namespace WingtipToys.Logic
                 string a = CartItemStatus.Approved.ToString();
                 List<CartItem> carItems = (db.ShoppingCartItems.
                     Where(ci => !String.IsNullOrEmpty(ci.Status)
-                        && ci.UserLoginName == UserLoginName)).
+                        && ci.UserLoginName == UserLoginName &&
+                        String.IsNullOrEmpty(Status) ? true : ci.Status == Status)).
                     Include(p => p.Product).ToList();
 
                 foreach (CartItem item in carItems)

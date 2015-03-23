@@ -17,7 +17,15 @@ namespace WingtipToys
 
         public List<WingtipToys.Models.CartItem> CartList_GetData()
         {
-            return CartItemsBLL.GetOrderedCarItems(HttpContext.Current.User.Identity.Name);
+            string status = ViewsDDL.SelectedValue;
+            if (status == "All")
+                status = string.Empty;
+            return CartItemsBLL.GetOrderedCarItems(HttpContext.Current.User.Identity.Name, status);
+        }
+
+        protected void ViewsDDL_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CartList.DataBind();
         }
     }
 }

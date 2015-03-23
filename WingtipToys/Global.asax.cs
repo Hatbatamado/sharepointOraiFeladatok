@@ -25,7 +25,7 @@ namespace WingtipToys
 
             RegisterCustomRoutes(RouteTable.Routes);
 
-            Database.SetInitializer(new ProductDatabaseInitializer()); 
+            //Database.SetInitializer(new ProductDatabaseInitializer()); 
         }
 
         void RegisterCustomRoutes(RouteCollection routes)
