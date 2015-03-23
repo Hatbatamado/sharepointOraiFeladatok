@@ -13,15 +13,6 @@ namespace WingtipToys.UserControls {
     public partial class CommentsUC {
         
         /// <summary>
-        /// commentDiv control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl commentDiv;
-        
-        /// <summary>
         /// TextBoxComment control.
         /// </summary>
         /// <remarks>
@@ -29,15 +20,6 @@ namespace WingtipToys.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextBoxComment;
-        
-        /// <summary>
-        /// ButtonSend control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button ButtonSend;
         
         /// <summary>
         /// MainUpdatePanel control.
@@ -56,6 +38,24 @@ namespace WingtipToys.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField HiddenFieldComment;
+        
+        /// <summary>
+        /// commentDiv control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl commentDiv;
+        
+        /// <summary>
+        /// Button1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Button1;
         
         /// <summary>
         /// loginDiv control.

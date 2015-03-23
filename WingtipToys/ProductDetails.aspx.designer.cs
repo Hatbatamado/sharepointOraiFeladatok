@@ -22,12 +22,21 @@ namespace WingtipToys {
         protected global::System.Web.UI.WebControls.FormView productDetail;
         
         /// <summary>
-        /// CommentsPlaceHolder control.
+        /// Fasz control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.PlaceHolder CommentsPlaceHolder;
+        protected global::System.Web.UI.WebControls.PlaceHolder Fasz;
+        
+        /// <summary>
+        /// CommentsPlaceHolder2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder CommentsPlaceHolder2;
     }
 }

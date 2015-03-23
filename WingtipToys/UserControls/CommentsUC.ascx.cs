@@ -16,6 +16,7 @@ namespace WingtipToys.UserControls
             {
                 commentDiv.Visible = HttpContext.Current.User.Identity.IsAuthenticated;
                 loginDiv.Visible = !commentDiv.Visible;
+                TextBoxComment.Visible = commentDiv.Visible;
                 LoadComments();
 
                 //script ellen védekezés:
