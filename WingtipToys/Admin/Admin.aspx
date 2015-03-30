@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Admin.aspx.cs" Inherits="WingtipToys.Admin.Admin" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
     <h1>Administration</h1>
+    <asp:Button runat="server" ID="ExcelReportButton" Text="Generate excel report" OnClick="ExcelReportButton_Click" CausesValidation="false"/>
     <hr />
     <h3>Add Product:</h3>
     <table>

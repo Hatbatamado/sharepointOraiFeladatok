@@ -1,10 +1,13 @@
-﻿using System;
+﻿using OfficeOpenXml;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WingtipToys.Logic;
+using WingtipToys.Models;
 
 namespace WingtipToys.Admin
 {
@@ -112,6 +115,47 @@ namespace WingtipToys.Admin
                 else
                 {
                     LabelRemoveStatus.Text = "Unable to locate product.";
+                }
+            }
+        }
+
+        protected void ExcelReportButton_Click(object sender, EventArgs e)
+        {
+            byte[] result = null;
+            string path = Server.MapPath("/ReportTemplates/ReportTemplate.xlsx");
+            using (FileStream fs = new FileStream(path, FileMode.Open))
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    using (ExcelPackage p = new ExcelPackage(ms, fs))
+                    {
+                        using (ProductContext db = new ProductContext())
+                        {
+                            List<CartItem> cartItems = db.ShoppingCartItems.ToList();
+                            ExcelWorksheet ws = p.Workbook.Worksheets[0];
+                            ws.Cells["A2"].LoadFromCollection(cartItems.Select(
+                                c => new
+                                {
+                                    ProductName = c.Product.ProductName,
+                                    UserName = c.UserLoginName,
+                                    DateCreated = c.DateCreated.ToString(),
+                                    Quantity = c.Quantity
+                                }));
+
+                            result = p.GetAsByteArray();
+                        }
+                    }
+                    if (result != null)
+                    {
+                        Response.Buffer = true;
+                        Response.Charset = "";
+                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                        Response.AddHeader("content-disposition", "attachment;filename=Report" +
+                            DateTime.Now.ToString("yyyy_MM_dd_HH_mm") + "xlsx");
+                        Response.BinaryWrite(result);
+                        Response.Flush();
+                        Response.End();
+                    }
                 }
             }
         }
