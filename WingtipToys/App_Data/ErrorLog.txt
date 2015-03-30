@@ -316,3 +316,141 @@ Exception Type: System.Web.HttpException
 Exception: An HTTP error occurred. Page Not found. Please try again.
 Source: customErrors section - Web.config
 Stack Trace: 
+********** 2015.03.30. 16:22:16 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 16:33:37 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 16:37:36 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 16:40:02 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 16:42:26 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 16:53:53 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:12:56 **********
+Inner Exception Type: System.Data.SqlClient.SqlException
+Inner Exception: Cannot drop database "WingtipToys" because it is currently in use.
+Inner Source: .Net SqlClient Data Provider
+Inner Stack Trace: 
+   a következő helyen: System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   a következő helyen: System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   a következő helyen: System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   a következő helyen: System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   a következő helyen: System.Data.SqlClient.SqlCommand.RunExecuteNonQueryTds(String methodName, Boolean async, Int32 timeout, Boolean asyncWrite)
+   a következő helyen: System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, String methodName, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite)
+   a következő helyen: System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   a következő helyen: System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   a következő helyen: System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.NonQuery(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   a következő helyen: System.Data.Entity.SqlServer.SqlProviderServices.<>c__DisplayClass2b.<DropDatabase>b__29(DbConnection conn)
+   a következő helyen: System.Data.Entity.SqlServer.SqlProviderServices.UsingConnection(DbConnection sqlConnection, Action`1 act)
+   a következő helyen: System.Data.Entity.SqlServer.SqlProviderServices.UsingMasterConnection(DbConnection sqlConnection, Action`1 act)
+   a következő helyen: System.Data.Entity.SqlServer.SqlProviderServices.DropDatabase(SqlConnection sqlConnection, Nullable`1 commandTimeout, String databaseName)
+   a következő helyen: System.Data.Entity.SqlServer.SqlProviderServices.DbDeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   a következő helyen: System.Data.Entity.Core.Common.DbProviderServices.DeleteDatabase(DbConnection connection, Nullable`1 commandTimeout, StoreItemCollection storeItemCollection)
+   a következő helyen: System.Data.Entity.Core.Objects.ObjectContext.DeleteDatabase()
+   a következő helyen: System.Data.Entity.Internal.DatabaseOperations.DeleteIfExists(ObjectContext objectContext)
+   a következő helyen: System.Data.Entity.Database.Delete()
+   a következő helyen: System.Data.Entity.DropCreateDatabaseAlways`1.InitializeDatabase(TContext context)
+   a következő helyen: System.Data.Entity.Internal.InternalContext.<>c__DisplayClasse`1.<CreateInitializationAction>b__d()
+   a következő helyen: System.Data.Entity.Internal.InternalContext.PerformInitializationAction(Action action)
+   a következő helyen: System.Data.Entity.Internal.InternalContext.PerformDatabaseInitialization()
+   a következő helyen: System.Data.Entity.Internal.LazyInternalContext.<InitializeDatabase>b__4(InternalContext c)
+   a következő helyen: System.Data.Entity.Internal.RetryAction`1.PerformAction(TInput input)
+   a következő helyen: System.Data.Entity.Internal.LazyInternalContext.InitializeDatabaseAction(Action`1 action)
+   a következő helyen: System.Data.Entity.Internal.LazyInternalContext.InitializeDatabase()
+   a következő helyen: System.Data.Entity.Internal.InternalContext.Initialize()
+   a következő helyen: System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
+   a következő helyen: System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
+   a következő helyen: System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
+   a következő helyen: System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
+   a következő helyen: System.Linq.Queryable.Where[TSource](IQueryable`1 source, Expression`1 predicate)
+   a következő helyen: WingtipToys.Logic.ShoppingCartActions.GetCount() hely: c:\Users\Training\Downloads\sharepointOraiFeladatok\WingtipToys\Logic\ShoppingCartActions.cs, sor: 217
+   a következő helyen: WingtipToys.SiteMaster.Page_PreRender(Object sender, EventArgs e) hely: c:\Users\Training\Downloads\sharepointOraiFeladatok\WingtipToys\Site.Master.cs, sor: 25
+   a következő helyen: System.Web.Util.CalliEventHandlerDelegateProxy.Callback(Object sender, EventArgs e)
+   a következő helyen: System.Web.UI.Control.OnPreRender(EventArgs e)
+   a következő helyen: System.Web.UI.Control.PreRenderRecursiveInternal()
+   a következő helyen: System.Web.UI.Control.PreRenderRecursiveInternal()
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+Exception Type: System.Web.HttpUnhandledException
+Exception: A program „System.Web.HttpUnhandledException” típusú kivételt váltott ki.
+Source: Application_Error - Global.asax
+Stack Trace: 
+   a következő helyen: System.Web.UI.Page.HandleError(Exception e)
+   a következő helyen: System.Web.UI.Page.ProcessRequestMain(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(Boolean includeStagesBeforeAsyncPoint, Boolean includeStagesAfterAsyncPoint)
+   a következő helyen: System.Web.UI.Page.ProcessRequest()
+   a következő helyen: System.Web.UI.Page.ProcessRequestWithNoAssert(HttpContext context)
+   a következő helyen: System.Web.UI.Page.ProcessRequest(HttpContext context)
+   a következő helyen: ASP.default_aspx.ProcessRequest(HttpContext context) hely: c:\Windows\Microsoft.NET\Framework\v4.0.30319\Temporary ASP.NET Files\root\e20e6a88\57a9c8ea\App_Web_xnqpzwgz.0.cs, sor: 0
+   a következő helyen: System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   a következő helyen: System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+
+********** 2015.03.30. 17:13:03 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:16:34 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:20:04 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:20:06 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:21:54 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:22:05 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:22:45 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:22:46 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:24:15 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 
+********** 2015.03.30. 17:25:15 **********
+Exception Type: System.Web.HttpException
+Exception: An HTTP error occurred. Page Not found. Please try again.
+Source: customErrors section - Web.config
+Stack Trace: 

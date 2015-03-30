@@ -40,6 +40,33 @@ namespace WingtipToys.Account {
         protected global::System.Web.UI.WebControls.TextBox Password;
         
         /// <summary>
+        /// TBBirthDay control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBBirthDay;
+        
+        /// <summary>
+        /// DDLManager control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLManager;
+        
+        /// <summary>
+        /// PictureFileUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload PictureFileUpload;
+        
+        /// <summary>
         /// ConfirmPassword control.
         /// </summary>
         /// <remarks>

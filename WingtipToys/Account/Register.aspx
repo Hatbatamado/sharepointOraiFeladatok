@@ -26,6 +26,13 @@
                     CssClass="text-danger" ErrorMessage="The password field is required." />
             </div>
         </div>
+        <div>
+            Birthday: <asp:TextBox runat="server" ID="TBBirthDay"></asp:TextBox>
+            <br />
+            Manager: <asp:DropDownList runat="server" ID="DDLManager"></asp:DropDownList>
+            <br />
+            Picture: <asp:FileUpload runat="server" ID="PictureFileUpload" />
+        </div>
         <div class="form-group">
             <asp:Label runat="server" AssociatedControlID="ConfirmPassword" CssClass="col-md-2 control-label">Confirm password</asp:Label>
             <div class="col-md-10">

@@ -50,7 +50,8 @@
             OnItemCommand="CommentsRepeater_ItemCommand">
             <ItemTemplate>
                 <div style="border: 1px solid green">
-                    <b><%# Eval("UserLoginName") %></b>:<br />
+                    <b><a href='/Account/Profile.aspx?UserName=<%# Eval("UserLoginName") %>'>
+                        <%# Eval("UserLoginName") %></a></b>:<br />
                     &nbsp;
             <%# Eval("CommentMSG") %>
                     <div style="float: right">
