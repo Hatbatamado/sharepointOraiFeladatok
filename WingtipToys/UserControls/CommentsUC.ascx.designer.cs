@@ -67,12 +67,21 @@ namespace WingtipToys.UserControls {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl loginDiv;
         
         /// <summary>
-        /// CommentsRepeater control.
+        /// CommentsGridView control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater CommentsRepeater;
+        protected global::System.Web.UI.WebControls.GridView CommentsGridView;
+        
+        /// <summary>
+        /// ODS control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource ODS;
     }
 }

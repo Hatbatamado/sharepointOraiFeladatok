@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using WingtipToys.Logic;
+using WingtipToys.Models;
 
 namespace WingtipToys.UserControls
 {
@@ -26,10 +27,22 @@ namespace WingtipToys.UserControls
 
         private void LoadComments()
         {
-            CommentsRepeater.DataSource = CommentBLL.GetCommentsByProduct(ProductId);
-            CommentsRepeater.DataBind();
+            //CommentsGridView.DataSource = CommentBLL.GetCommentsByProduct(ProductId);
+            //CommentsGridView.DataBind();
+            CommentsGridView.DataSource = ODS;
+			CommentsGridView.DataBind();
         }
+		
+		public List<Comment> GetComments()
+		{
+			return CommentBLL.GetCommentsByProduct(ProductId);
+		}
 
+		public void SetComment()
+		{
+			
+		}
+		
         protected void ButtonSend_Click(object sender, EventArgs e)
         {
             //CommentBLL.AddComment(Server.HtmlEncode(TextBoxComment.Text), ProductId);
@@ -40,7 +53,7 @@ namespace WingtipToys.UserControls
 
         public int ProductId { get; set; }
 
-        protected void CommentsRepeater_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void Comments_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             //onrowcommand gridviewban
             if (e.CommandName == "Torles")

@@ -46,21 +46,36 @@
             <br /><br />
         </div>
 
-        <asp:Repeater runat="server" ID="CommentsRepeater" OnItemDataBound="CommentsRepeater_ItemDataBound"
-            OnItemCommand="CommentsRepeater_ItemCommand">
-            <ItemTemplate>
-                <div style="border: 1px solid green">
-                    <b><a href='/Account/Profile.aspx?UserName=<%# Eval("UserLoginName") %>'>
-                        <%# Eval("UserLoginName") %></a></b>:<br />
-                    &nbsp;
-            <%# Eval("CommentMSG") %>
-                    <div style="float: right">
-                        <asp:LinkButton runat="server" CausesValidation="false" ID="TorlesButton" Text="Delete"
-                            CommandArgument='<%# Eval("CommentID") %>' CommandName="Torles"></asp:LinkButton>
-                    </div>
-                </div>
-            </ItemTemplate>
-        </asp:Repeater>
-
+        <asp:GridView runat="server" ID="CommentsGridView" OnItemDataBound="CommentsRepeater_ItemDataBound"
+            OnItemCommand="CommentsRepeater_ItemCommand" AutoGenerateColumns="false">
+			<Columns>
+				<asp:TemplateField>
+					<ItemTemplate>
+						<b><a href='/Account/Profile.aspx?UserName=<%# Eval("UserLoginName") %>'>
+                        <%# Eval("UserLoginName") %></a></b>
+					</ItemTemplate>
+					<EditItemTemplate>
+						<asp:Label runat="server" ID="UserNameLabel" Text='<%# Eval("UserLoginName") %>'>
+						</asp:Label>
+					</EditItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField>
+					<ItemTemplate>
+						<%# Eval("CommentMSG") %>
+					</ItemTemplate>
+					<EditItemTemplate>
+						<asp:TextBox runat="server" ID="commentTB" TextMode="MultiLine" Rows="4" Columns="10" Text='<%# Bind("CommentMSG") %>'>
+						</asp:TextBox>
+					</EditItemTemplate>
+				</asp:TemplateField>
+				<asp:TemplateField>
+					<ItemTemplate>
+					<asp:LinkButton runat="server" CausesValidation="false" ID="TorlesButton" Text="Delete"
+                            CommandArgument='<%# Eval("CommentID") %>' CommandName="Torles"></asp:LinkButton> 
+					</ItemTemplate>
+				</asp:TemplateField>
+			</Columns>
+        </asp:GridView>
+        <asp:ObjectDataSource runat="server" ID="ODS" TypeName="WingtipToys.Models.Comment" SelectMethod="GetComments" UpdateMethod="SetComment"></asp:ObjectDataSource>
     </ContentTemplate>
 </asp:UpdatePanel>

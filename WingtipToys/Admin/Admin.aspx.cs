@@ -124,7 +124,7 @@ namespace WingtipToys.Admin
             byte[] result = null;
             String path = Server.MapPath("~/ReportTemplates/ReportTemplate.xlsx");
 			
-			using(Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read)
+			using(Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read))
 			{
 				using(MemoryStream ms = new MemoryStream())
 				{
