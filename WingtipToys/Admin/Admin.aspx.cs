@@ -123,33 +123,37 @@ namespace WingtipToys.Admin
         {
             byte[] result = null;
             String path = Server.MapPath("~/ReportTemplates/ReportTemplate.xlsx");
-            FileInfo info = new FileInfo(path);
-            /* using (Stream fs = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
-             {
-                 using (MemoryStream ms = new MemoryStream())
-                 {*/
-            using (ExcelPackage p = new ExcelPackage())
-            {
-                using (ProductContext db = new ProductContext())
-                {
-                    List<CartItem> cartItems = db.ShoppingCartItems.ToList();
-                    ExcelWorksheet ws = p.Workbook.Worksheets.Add("Data");
-                    ws.Cells["A2"].LoadFromCollection(cartItems.Select(
-                        c => new
-                        {
-                            ProductName = c.Product.ProductName,
-                            UserName = c.UserLoginName,
-                            DateCreated = c.DateCreated.ToString(),
-                            Quantity = c.Quantity
-                        }));
+			
+			using(Stream stream = new FileStream(path, FileMode.Open, FileAccess.Read)
+			{
+				using(MemoryStream ms = new MemoryStream())
+				{
+					using(ExcelPackage p = new ExcelPackage(ms, stream))
+					{
+						using(ProductContext db = new ProductContext())
+						{
+							ExcelWorksheet ws = p.Workbook.Worksheets[1];
+							List<CartItem> cartItems = db.ShoppingCartItems.ToList();
+							ws.Cells["A2"].LoadFromCollection(cartItems.Select(
+							c => new
+							{
+								ProductName = c.Product.ProductName,
+								UserName = c.UserLoginName,
+								DateCreated = c.DateCreated.ToString(),
+								Quantity = c.Quantity
+							}));
+							
+							//táblázat sor változtatás
+							ws.Tables[0].TableXml.InnerXml =
+								ws.Tables[0].TableXml.InnerXml.Replace("ref=\"A1:D2\"",
+								String.Format("ref=\"A1:D{0}\"", cartItems.Count+1));
 
-                    result = p.GetAsByteArray();
-                }
-            }
-            /* }
-         }*/
-
-            if (result != null)
+							result = p.GetAsByteArray();
+						}
+					}
+				}
+			}
+			if (result != null)
             {
                 Response.Buffer = true;
                 Response.Charset = "";
