@@ -122,41 +122,43 @@ namespace WingtipToys.Admin
         protected void ExcelReportButton_Click(object sender, EventArgs e)
         {
             byte[] result = null;
-            string path = Server.MapPath("/ReportTemplates/ReportTemplate.xlsx");
-            using (FileStream fs = new FileStream(path, FileMode.Open))
+            String path = Server.MapPath("~/ReportTemplates/ReportTemplate.xlsx");
+            FileInfo info = new FileInfo(path);
+            /* using (Stream fs = new FileStream(path, FileMode.Open, FileAccess.ReadWrite))
+             {
+                 using (MemoryStream ms = new MemoryStream())
+                 {*/
+            using (ExcelPackage p = new ExcelPackage())
             {
-                using (MemoryStream ms = new MemoryStream())
+                using (ProductContext db = new ProductContext())
                 {
-                    using (ExcelPackage p = new ExcelPackage(ms, fs))
-                    {
-                        using (ProductContext db = new ProductContext())
+                    List<CartItem> cartItems = db.ShoppingCartItems.ToList();
+                    ExcelWorksheet ws = p.Workbook.Worksheets.Add("Data");
+                    ws.Cells["A2"].LoadFromCollection(cartItems.Select(
+                        c => new
                         {
-                            List<CartItem> cartItems = db.ShoppingCartItems.ToList();
-                            ExcelWorksheet ws = p.Workbook.Worksheets[0];
-                            ws.Cells["A2"].LoadFromCollection(cartItems.Select(
-                                c => new
-                                {
-                                    ProductName = c.Product.ProductName,
-                                    UserName = c.UserLoginName,
-                                    DateCreated = c.DateCreated.ToString(),
-                                    Quantity = c.Quantity
-                                }));
+                            ProductName = c.Product.ProductName,
+                            UserName = c.UserLoginName,
+                            DateCreated = c.DateCreated.ToString(),
+                            Quantity = c.Quantity
+                        }));
 
-                            result = p.GetAsByteArray();
-                        }
-                    }
-                    if (result != null)
-                    {
-                        Response.Buffer = true;
-                        Response.Charset = "";
-                        Response.Cache.SetCacheability(HttpCacheability.NoCache);
-                        Response.AddHeader("content-disposition", "attachment;filename=Report" +
-                            DateTime.Now.ToString("yyyy_MM_dd_HH_mm") + "xlsx");
-                        Response.BinaryWrite(result);
-                        Response.Flush();
-                        Response.End();
-                    }
+                    result = p.GetAsByteArray();
                 }
+            }
+            /* }
+         }*/
+
+            if (result != null)
+            {
+                Response.Buffer = true;
+                Response.Charset = "";
+                Response.Cache.SetCacheability(HttpCacheability.NoCache);
+                Response.AddHeader("content-disposition", "attachment;filename=Report"
+                    + DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss") + ".xlsx");
+                Response.BinaryWrite(result);
+                Response.Flush();
+                Response.End();
             }
         }
     }

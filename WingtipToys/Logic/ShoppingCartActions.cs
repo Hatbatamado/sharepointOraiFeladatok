@@ -94,6 +94,10 @@ namespace WingtipToys.Logic
                                select (int?)cartItems.Quantity *
                                cartItems.Product.UnitPrice).Sum();
             return total ?? decimal.Zero;
+            /* if (total.HasValue)
+                 return total.Value;
+             else
+                 return 0;*/
         }
 
         public ShoppingCartActions GetCart(HttpContext context)
@@ -137,9 +141,7 @@ namespace WingtipToys.Logic
                                     if (!String.IsNullOrEmpty(cartId))
                                         UpdateItem(cartId, cartItem.ProductId, CartItemUpdates[i].PurchaseQuantity, CartItemUpdates[i].Status);
                                     else
-                                    {
                                         UpdateItem(cartItem.CartId, cartItem.ProductId, CartItemUpdates[i].PurchaseQuantity, CartItemUpdates[i].Status);
-                                    }
                                 }
                             }
                         }
@@ -226,7 +228,7 @@ namespace WingtipToys.Logic
             public int ProductId;
             public int PurchaseQuantity;
             public bool RemoveItem;
-            public string Status { get; set; }
+            public String Status { get; set; }
         }
 
         public void MigrateCart(string cartId, string userName)
