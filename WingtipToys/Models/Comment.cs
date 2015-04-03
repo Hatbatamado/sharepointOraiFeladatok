@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
+using WingtipToys.Logic;
 
 namespace WingtipToys.Models
 {
@@ -18,5 +19,6 @@ namespace WingtipToys.Models
         public int ProductID { get; set; }
 
         public virtual Product Product { get; set; }
+
     }
 }

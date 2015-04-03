@@ -34,6 +34,8 @@ namespace WingtipToys.Admin
         protected void AddProductButton_Click(object sender, EventArgs e)
         {
             Boolean fileOK = false;
+            Boolean videoFileOK = false;
+            String pathVideo = Server.MapPath("~/Catalog/Videos/");
             String path = Server.MapPath("~/Catalog/Images/");
             if (ProductImage.HasFile)
             {
@@ -44,6 +46,18 @@ namespace WingtipToys.Admin
                     if (fileExtension == allowedExtensions[i])
                     {
                         fileOK = true;
+                    }
+                }
+            }
+            if (FileUploadVideo.HasFile)
+            {
+                String fileExtension = System.IO.Path.GetExtension(FileUploadVideo.FileName).ToLower();
+                String[] allowedExtensions = { ".mp4", ".wmv" };
+                for (int i = 0; i < allowedExtensions.Length; i++)
+                {
+                    if (fileExtension == allowedExtensions[i])
+                    {
+                        videoFileOK = true;
                     }
                 }
             }
@@ -61,25 +75,41 @@ namespace WingtipToys.Admin
                 {
                     LabelAddStatus.Text = ex.Message;
                 }
-
-                // Add product data to DB.
-                AddProducts products = new AddProducts();
-                bool addSuccess = products.AddProduct(AddProductName.Text, AddProductDescription.Text,
-                    AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName);
-                if (addSuccess)
-                {
-                    // Reload the page.
-                    string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
-                    Response.Redirect(pageUrl + "?ProductAction=add");
-                }
-                else
-                {
-                    LabelAddStatus.Text = "Unable to add new product to database.";
-                }
             }
             else
             {
                 LabelAddStatus.Text = "Unable to accept file type.";
+            }
+            if (videoFileOK)
+            {
+                try
+                {
+                    // Save to Images folder.
+                    FileUploadVideo.PostedFile.SaveAs(pathVideo + FileUploadVideo.FileName);
+                }
+                catch (Exception ex)
+                {
+                    LabelAddStatus.Text = ex.Message;
+                } 
+            }
+            else
+            {
+                LabelAddStatus.Text = "Unable to accept file type.";
+            }
+
+            // Add product data to DB.
+            AddProducts products = new AddProducts();
+            bool addSuccess = products.AddProduct(AddProductName.Text, AddProductDescription.Text,
+                AddProductPrice.Text, DropDownAddCategory.SelectedValue, ProductImage.FileName, FileUploadVideo.FileName);
+            if (addSuccess)
+            {
+                // Reload the page.
+                string pageUrl = Request.Url.AbsoluteUri.Substring(0, Request.Url.AbsoluteUri.Count() - Request.Url.Query.Count());
+                Response.Redirect(pageUrl + "?ProductAction=add");
+            }
+            else
+            {
+                LabelAddStatus.Text = "Unable to add new product to database.";
             }
         }
 

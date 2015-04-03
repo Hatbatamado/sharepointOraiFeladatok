@@ -32,8 +32,8 @@
 
     </script>
 
-<asp:UpdatePanel runat="server" ID="MainUpdatePanel">
-    <ContentTemplate>
+<%--<asp:UpdatePanel runat="server" ID="MainUpdatePanel">
+    <ContentTemplate>--%>
         <asp:HiddenField runat="server" ID="HiddenFieldComment" />
         <div runat="server" id="commentDiv">
 
@@ -46,9 +46,29 @@
             <br /><br />
         </div>
 
-        <asp:GridView runat="server" ID="CommentsGridView" OnItemDataBound="CommentsRepeater_ItemDataBound"
-            OnItemCommand="CommentsRepeater_ItemCommand" AutoGenerateColumns="false">
+        <asp:GridView runat="server" ID="CommentsGridView"
+            OnRowCommand="CommentsGridView_RowCommand"
+            OnItemCommand="CommentsRepeater_ItemCommand" AutoGenerateColumns="false" DataSourceID="ODS">
 			<Columns>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button runat="server" ID="EditButton" Text="Edit" CommandName="Edit" />
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:Button runat="server" ID="SaveButton" Text="Update" CommandName="Update" />
+                        <asp:Button runat="server" ID="CancelButton" Text="Cancel" CommandName="Cancel" />
+                    </EditItemTemplate>
+                </asp:TemplateField>
+                <asp:TemplateField>
+                    <ItemTemplate>
+                        <asp:Button runat="server" ID="MyEditButton" Text="MyEdit"
+                            CommandArgument='<%# ((GridViewRow) Container).RowIndex %>' CommandName="MyEdit" />
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:Button runat="server" ID="MySaveButton" Text="MyUpdate" CommandName="MyUpdate" />
+                        <asp:Button runat="server" ID="MyCancelButton" Text="MyCancel" CommandName="MyCancel" />
+                    </EditItemTemplate>
+                </asp:TemplateField>
 				<asp:TemplateField>
 					<ItemTemplate>
 						<b><a href='/Account/Profile.aspx?UserName=<%# Eval("UserLoginName") %>'>
@@ -57,6 +77,7 @@
 					<EditItemTemplate>
 						<asp:Label runat="server" ID="UserNameLabel" Text='<%# Eval("UserLoginName") %>'>
 						</asp:Label>
+                        <asp:HiddenField runat="server" ID="HiddenField1" Value='<%# Bind("CommentID") %>' />
 					</EditItemTemplate>
 				</asp:TemplateField>
 				<asp:TemplateField>
@@ -76,6 +97,6 @@
 				</asp:TemplateField>
 			</Columns>
         </asp:GridView>
-        <asp:ObjectDataSource runat="server" ID="ODS" TypeName="WingtipToys.Models.Comment" SelectMethod="GetComments" UpdateMethod="SetComment"></asp:ObjectDataSource>
-    </ContentTemplate>
-</asp:UpdatePanel>
+        <asp:ObjectDataSource runat="server" ID="ODS" TypeName="WingtipToys.UserControls.CommentsUC" SelectMethod="GetComments" UpdateMethod="SetComment" OnObjectCreating="ODS_ObjectCreating" OnObjectDisposing="ODS_ObjectDisposing" ></asp:ObjectDataSource>
+<%--    </ContentTemplate>
+</asp:UpdatePanel>--%>

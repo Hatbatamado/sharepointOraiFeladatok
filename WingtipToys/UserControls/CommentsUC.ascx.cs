@@ -29,18 +29,25 @@ namespace WingtipToys.UserControls
         {
             //CommentsGridView.DataSource = CommentBLL.GetCommentsByProduct(ProductId);
             //CommentsGridView.DataBind();
-            CommentsGridView.DataSource = ODS;
-			CommentsGridView.DataBind();
         }
 		
 		public List<Comment> GetComments()
 		{
-			return CommentBLL.GetCommentsByProduct(ProductId);
+	        return CommentBLL.GetCommentsByProduct(ProductId);
 		}
 
-		public void SetComment()
+        public void SetComment(int CommentID, string CommentMSG)
 		{
-			
+            using(ProductContext db = new ProductContext())
+            {
+                Comment c = (from co in db.Comments
+                             where co.CommentID == CommentID
+                             select co).Single();
+                
+                c.CommentMSG = CommentMSG;
+
+                db.SaveChanges();
+            }
 		}
 		
         protected void ButtonSend_Click(object sender, EventArgs e)
@@ -53,7 +60,7 @@ namespace WingtipToys.UserControls
 
         public int ProductId { get; set; }
 
-        protected void Comments_ItemCommand(object source, RepeaterCommandEventArgs e)
+        protected void Comments_ItemCommand(object source, GridViewCommandEventArgs e)
         {
             //onrowcommand gridviewban
             if (e.CommandName == "Torles")
@@ -64,10 +71,32 @@ namespace WingtipToys.UserControls
             }
         }
 
-        protected void CommentsRepeater_ItemDataBound(object sender, RepeaterItemEventArgs e)
+        protected void CommentsRepeater_ItemDataBound(object sender, GridViewCommandEventArgs e)
         {
-            LinkButton lb = e.Item.FindControl("TorlesButton") as LinkButton;
-            lb.Visible = HttpContext.Current.User.IsInRole(Settings.AdministratorRoleName.ToString());
+            //LinkButton lb = e.Item.FindControl("TorlesButton") as LinkButton;
+            //lb.Visible = HttpContext.Current.User.IsInRole(Settings.AdministratorRoleName.ToString());
         }
+
+        protected void ODS_ObjectCreating(object sender, ObjectDataSourceEventArgs e)
+        {
+            e.ObjectInstance = this;
+        }
+
+        protected void ODS_ObjectDisposing(object sender, ObjectDataSourceDisposingEventArgs e)
+        {
+            e.Cancel = true;
+        }
+
+        protected void CommentsGridView_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            if (e.CommandName == "MyCancel")
+                CommentsGridView.EditIndex = -1;
+            else if (e.CommandName == "MyUpdate")
+            {
+            }
+            else if (e.CommandName == "MyEdit")
+                CommentsGridView.EditIndex = Convert.ToInt32(e.CommandArgument);
+          
+                }
     }
 }

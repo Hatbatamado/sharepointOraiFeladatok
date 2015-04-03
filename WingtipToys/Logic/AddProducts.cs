@@ -8,7 +8,8 @@ namespace WingtipToys.Logic
 {
     public class AddProducts
     {
-        public bool AddProduct(string ProductName, string ProductDesc, string ProductPrice, string ProductCategory, string ProductImagePath)
+        public bool AddProduct(string ProductName, string ProductDesc,
+            string ProductPrice, string ProductCategory, string ProductImagePath, string ProductVideoPath)
         {
             var myProduct = new Product();
             myProduct.ProductName = ProductName;
@@ -16,6 +17,7 @@ namespace WingtipToys.Logic
             myProduct.UnitPrice = Convert.ToDouble(ProductPrice);
             myProduct.ImagePath = ProductImagePath;
             myProduct.CategoryID = Convert.ToInt32(ProductCategory);
+            myProduct.VideoPath = ProductVideoPath;
 
             using (ProductContext _db = new ProductContext())
             {

@@ -44,6 +44,12 @@
                 <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" Text="* Image path required." ControlToValidate="ProductImage" SetFocusOnError="true" Display="Dynamic"></asp:RequiredFieldValidator>
             </td>
         </tr>
+        <tr>
+            <td><asp:Label ID="VideoLable" runat="server">Video File:</asp:Label></td>
+            <td>
+                <asp:FileUpload ID="FileUploadVideo" runat="server" />
+            </td>
+        </tr>
     </table>
     <p></p>
     <p></p>
