@@ -21,7 +21,16 @@
                     <td>
                         <img src="/Catalog/Images/<%#:Item.ImagePath %>" style="border: solid; height: 300px" alt="<%#:Item.ProductName %>" />
                     </td>
-                    <td>&nbsp;</td>
+                    <td>
+                        <video id="video" controls width="400" height="300" src="/Catalog/Videos/<%#:Item.VideoPath %>"></video>
+                        <object type="application/x-shockwave-flash" data="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" width="640" height="360" class="hide" id="objectVideo">
+                            <param name="movie" value="http://releases.flowplayer.org/swf/flowplayer-3.2.1.swf" />
+                            <param name="allowFullScreen" value="true" />
+                            <param name="wmode" value="transparent" />
+                            <param name="flashVars" value="config={'playlist':['http%3A%2F%2Fsandbox.thewikies.com%2Fvfe-generator%2Fimages%2Fbig-buck-bunny_poster.jpg',{'url':'http%3A%2F%2Fclips.vorwaerts-gmbh.de%2Fbig_buck_bunny.mp4','autoPlay':false}]}" />
+                            <img alt="Big Buck Bunny" src="http://sandbox.thewikies.com/vfe-generator/images/big-buck-bunny_poster.jpg" width="640" height="360" title="No video playback capabilities, please download the video below" />
+                        </object>
+                    </td>
                     <td style="vertical-align: top; text-align: left;">
                         <b>Description:</b><br />
                         <%#:Item.Description %>
@@ -36,4 +45,12 @@
         </ItemTemplate>
     </asp:FormView>
     <asp:PlaceHolder runat="server" ID="CommentsPlaceHolder"></asp:PlaceHolder>
+    <script>
+        if (Modernizr.video) {
+
+        }
+        else {
+            $("#objectVideo").removeClass("hide");
+        }
+    </script>
 </asp:Content>
