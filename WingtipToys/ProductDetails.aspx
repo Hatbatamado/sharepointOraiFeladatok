@@ -7,9 +7,13 @@
         tinymce.init({
             selector: "textarea"
         });
-
+        $.getJSON("http://localhost:55055/SecretService.svc/GetClientSecretCode", {},
+            function (data) {
+                $("#jsdiv").html("JS WCF " + data.key + " " + data.value);
+            });
     </script>
-
+    <asp:Label runat="server" ID="SecretCodeLabel"></asp:Label>
+    <div id="jsdiv"></div>
     <asp:FormView ID="productDetail" runat="server" ItemType="WingtipToys.Models.Product" SelectMethod="GetProduct" RenderOuterTable="false">
         <ItemTemplate>
             <div>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="e7912fbd-b78e-449d-93f6-1e3f8977c6c3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:55055/SecretService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="SecretService.disco" MetadataType="Disco" ID="70932f16-0f49-4720-8809-3dc0f7cd86a5" SourceId="1" SourceUrl="http://localhost:55055/SecretService.svc?disco" />
+    <MetadataFile FileName="SecretService.xsd" MetadataType="Schema" ID="00cc833a-5383-42c3-a634-555ee9a3ca86" SourceId="1" SourceUrl="http://localhost:55055/SecretService.svc?xsd=xsd2" />
+    <MetadataFile FileName="SecretService1.xsd" MetadataType="Schema" ID="e3fe180a-ab4c-492e-8b39-f58415a0eb9d" SourceId="1" SourceUrl="http://localhost:55055/SecretService.svc?xsd=xsd1" />
+    <MetadataFile FileName="SecretService2.xsd" MetadataType="Schema" ID="45a108ab-c7a2-4bb2-834a-7eb31466c3f1" SourceId="1" SourceUrl="http://localhost:55055/SecretService.svc?xsd=xsd0" />
+    <MetadataFile FileName="SecretService.wsdl" MetadataType="Wsdl" ID="ddc2de27-8efa-4b17-8d61-0d51c0f4d90b" SourceId="1" SourceUrl="http://localhost:55055/SecretService.svc?wsdl" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

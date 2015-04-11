@@ -28,7 +28,11 @@ namespace WingtipToys
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            using (SecretServiceReference.SecretServiceClient client = new SecretServiceReference.SecretServiceClient())
+            {
+                //SecretCodeLabel.Text = client.GetSecretCode() + " " +
+                //  client.GetClientSecretCode().Key + " " + client.GetClientSecretCode().Value;
+            }
         }
 
         public IQueryable<Product> GetProduct(

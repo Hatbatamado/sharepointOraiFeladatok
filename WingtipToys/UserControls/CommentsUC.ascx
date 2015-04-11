@@ -48,7 +48,8 @@
 
         <asp:GridView runat="server" ID="CommentsGridView"
             OnRowCommand="CommentsGridView_RowCommand"
-            OnItemCommand="CommentsRepeater_ItemCommand" AutoGenerateColumns="false" DataSourceID="ODS">
+            OnItemCommand="CommentsRepeater_ItemCommand" AutoGenerateColumns="false" DataSourceID="ODS"
+            AllowPaging="true" PageSize="3" PagerSettings-Mode="NumericFirstLast">
 			<Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
